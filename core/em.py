@@ -37,7 +37,7 @@ def gaussian_expectation_maximum(data, K=2):
             only affects \gamma_jk in the Q function.
 
     E[\gamma_jk] = E[\gamma_jk|D, \theta]
-    = P(\gamma_jk=1|D, \theta) * 1 + P(\gamma_jk=0|D, \theta*0) # Expectation Definition.
+    = P(\gamma_jk=1|D, \theta) * 1 + P(\gamma_jk=0|D, \theta) * 0 # Expectation Definition.
     = P(\gamma_jk=1|D, \theta)
     = P(\gamma_jk = 1|X_j, \theta) # i.i.d assumption.
     = \frac{ P(\gamma_jk=1, X_j|\theta) }{ P(X_j|\theta) }  # Bayes Theorem.
