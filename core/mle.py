@@ -3,13 +3,16 @@ np.random.seed(7)
 
 
 def gaussian_mle(data):
-    # y = p(X; mu, sigma) = 1. / (sqrt(2*pi*sigma^2)) * exp(-(X-mu)**2/(2*sigma^2))
+    # Probability Density Function of data, i.i.d
+    # P(D | \theta) = \prod_i p(X_i | \theta)
+    # P(X_i | \theta=(mu, sigma)) = 1. / (sqrt(2*pi*sigma^2)) * exp(-(X-mu)**2/(2*sigma^2))
+    # Let y_i = P(X_i | mu, sigma) for short,
     # likelihood function, with i.i.d (independently identical distributed) assumption,
-    #  L(X; mu, sigma) = \prod_i^{n} y_i
-    # log-likelihood function l(X; mu, sigma) = \sum_i^{n} log(y_i)
+    #  P(D | \theta) = L(D; mu, sigma) = \prod_i^{n} y_i
+    # log-likelihood function l(D; mu, sigma) = \sum_i^{n} log(y_i)
     # l() is concave w.r.t mu,  \partial_l / \partial_mu = 0 ==> mu_{MLE} = \sum_i^{n}X_i / n
     # l() is concave w.r.t sigma, \partial_l / \partial_sigma = 0 ==>
-    #       sigma**2_{MLE} = \sum_i^{n} (X_i - mu) ^ 2 / n
+    #       sigma^2_{MLE} = \sum_i^{n} (X_i - mu) ^ 2 / n
     #   mu is unknown, use the estimated X_bar = 1/n \sum_i^{n} X_i instead.
 
     n = data.shape[0]
